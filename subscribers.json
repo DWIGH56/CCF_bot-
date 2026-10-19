@@ -1,1 +1,10 @@
-{"users": {}}
+{
+  "users": [
+    {
+      "telegram_id": 5504694187,
+      "username": "dwi",
+      "status": "active",
+      "expiry_date": "2025-12-31T23:59:59Z"
+    }
+  ]
+}
