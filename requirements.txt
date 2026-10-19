@@ -1,0 +1,22 @@
+# ============================================================
+# CCF (Coin Cash Flow) - Telegram Bot untuk Screening Coin DEX
+# Mode produksi utama : GitHub Actions Scheduled Cron (main.py, batch)
+# Mode warisan         : Hugging Face Spaces 24/7 (app.py, Gradio)
+# ============================================================
+
+# --- HTTP Client async (WAJIB — SEMUA panggilan API non-blocking) ---
+aiohttp>=3.9.0        # DexScreener + GoPlus via screener.HttpFetcher (async)
+httpx>=0.27.0         # main.py: kirim alert Telegram one-shot (async, paralel)
+h2>=4.1.0             # dukungan HTTP/2 utk httpx (multiplexing -> run <2 menit)
+
+# --- Database ---
+# Mode cron : subscribers.json (stdlib json — tanpa paket tambahan)
+# Mode HF   : SQLite built-in (`sqlite3`) — tanpa paket tambahan
+
+# --- Opsional: hanya utk mode lama Hugging Face Spaces (app.py) ---
+# Di GitHub Actions TIDAK perlu install ini; uncomment bila deploy ke Space.
+# gradio>=4.44.0
+# python-telegram-bot>=20.8,<22.0
+
+# --- Utilitas / Kualitas Hidup ---
+python-dotenv>=1.0.0  # load .env saat development lokal (di CI/HF pakai Secrets)

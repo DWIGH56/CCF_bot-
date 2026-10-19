@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+# Database SQLite lokal & artefak WAL (jangan ikut ter-commit)
+data/
+*.db
+*.db-wal
+*.db-shm
+
